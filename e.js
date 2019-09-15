@@ -5,11 +5,14 @@ function veHinh1(h = 8) {
             if (x <= y) {
                 d += ' ' + '*';
             }
+            else {
+                d += '  '
+            }
         }
         console.log(d)
     }
 }
-veHinh1()
+// veHinh1()
 
 // *        y=1; x=1
 // * *      y=2; x=1,2
@@ -31,9 +34,27 @@ function veHinh2(h = 8) {
         console.log(d)
     }
 }
-veHinh2()
+// veHinh2()
 //         * y=1; x=5
 //       * * y=2; x=54
 //     * * * y=3; x=543
 //   * * * * y=4; x=5432
 // * * * * * =>    x >= h-y+1
+
+function veHinh(h = 8, fn) {
+    for (let y = 1; y <= h; ++y) {
+        let d = '';
+        for (let x = 1; x <= h; ++x) {
+            let dk = fn(h, x, y) // x >= h - y + 1
+            if (dk) {
+                d += ' ' + '*';
+            }
+            else {
+                d += '  '
+            }
+        }
+        console.log(d)
+    }
+}
+// veHinh(8, (h, x, y) => x >= h - y + 1)
+veHinh(8, (h, x, y) => x <= y)
